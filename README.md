@@ -19,18 +19,29 @@ Entwickeln Sie mit einem ODER-Gatter eine „Selbsterhalte“-Schaltung, die bei
 
 >Note: Bei einer „Selbsterhalte“-Schaltung wird das Ausgangssignal eines Gatters nicht nur als Signal für den Ausgang verwendet, sondern auch durch eine zusätzliche Kabel-Abzweigung zurückgeführt und als Eingang für ein Gatter verwendet (Hier mit einem Oder-Gatter). 
 
+**Lösung:**
+Um das Eingangssignal dauerhaft zu setzen, also auch dann den Alarm aktiviert zu lassen, wenn bspw. der Sensor s nicht mehr ausgelöst wird (z.B. weil die Haustür nach dem Öffnen wieder geschlossen wurde), wird der aktuelle Ausgang A zurückgeführt und als Eingang für ein Gatter verwendet. 
+
+![](./img/1_a.png)
+
 ### b)
 
 Ergänzen Sie die Schaltung um eine Möglichkeit, die Alarmanlage zurückzusetzen (r für Rücksetzen). Füllen Sie dazu zunächst die Wahrheitstabelle aus (den Zustand r=1 und s=1 betrachten wir später gesondert): 
 
 | r |  s | A |
 |---|----|-------|
-| 0 |   |      |
-| 0 |   |      |
-| 1 |   |      |
-| 1 | 1  | ??0     |
+| 0 |  0 |   Aalt   |
+| 0 | 1 |  1   |
+| 1 | 0 |  0   |
+| 1 | 1  | nd     |
 
 >Note: Nutzen Sie den Ausgang des ODER-Gatters als Eingang in ein neues UND-Gatter. Der Ausgang des UND-Gatters wird zum 2. Eingang des ODER-Gatters geführt. Jetzt muss nur noch der Schalter Rücksetzen richtig angeschlossen werden.
+
+**Lösung:**
+
+Zum Rücksetzen werden zusätzlich ein NOT- und ein UND-Gatter benötigt.
+
+![](./img/1_b.png)
 
 ### c)
 
@@ -38,6 +49,10 @@ Konzipieren Sie eine Alarmanlage mit Setzen (s) und Rücksetzen (r) nur aus NAND
 
 >Note: Ein NICHT-Gatter kann mit einem NAND-Gatter erzeugt werden, indem man beide Eingänge mit dem gleichen Eingangssignal verbindet.
 Behalte weiter die sich "kreuzende Leitungsstruktur" bei, ersetze die bisherigen Gatter mit NAND-Gatter, ... 
+
+**Lösung:**
+
+![](./img/1_c.png)
 
 
 ## Aufgabe 2: Zahlenkomparator für Dualzahlen
@@ -50,25 +65,32 @@ In der Aufgabe soll eine Schaltung entwickelt werden, die in der Lage ist, zwei 
 ### b) Stellen Sie die drei Funktionsgleichungen Y1, Y2 und Y3 auf und minimieren diese.  
 ### c) Skizziere die Schaltung aus Grundgliedern
 
+**Lösung:**
+
 
 | P1 |  P2 | Q1   |Q2    |Y1 (P>Q) |Y2 (P=Q) |Y3 (P<Q) |
 |----|-----|------|------|----|----|----|
-|  0 |  0  |   0  | 0  | | | |
-|  0 |  0  |   0  | 1  | | | |
-|  0 |  0  |   1  | 0  | | | |
-|  0 |  0  |   1  | 1  | | | |
-|  0 |  1  |   0  | 0  | | | |
-|  0 |  1  |   0  | 1  | | | |
-|  0 |  1  |   1  | 0  | | | |
-|  0 |  1  |   1  | 1  | | | |
-|  1 |  0  |   0  | 0  | | | |
-|  1 |  0  |   0  | 1  | | | |
-|  1 |  0  |   1  | 0  | | | |
-|  1 |  0  |   1  | 1  | | | |
-|  1 |  1  |   0  | 0  | | | |
-|  1 |  1  |   0  | 1  | | | |
-|  1 |  1  |   1  | 0  | | | |
-|  1 |  1  |   1  | 1  | | | |
+|  0 |  0  |   0  | 0  | 0| 1| 0|
+|  0 |  0  |   0  | 1  | 0| 0| 1|
+|  0 |  0  |   1  | 0  | 0| 0| 1|
+|  0 |  0  |   1  | 1  | 0| 0| 1|
+|  0 |  1  |   0  | 0  | 1| 0| 0|
+|  0 |  1  |   0  | 1  | 0| 1| 0|
+|  0 |  1  |   1  | 0  | 0| 0| 1|
+|  0 |  1  |   1  | 1  | 0| 0| 1|
+|  1 |  0  |   0  | 0  | 1| 0| 0|
+|  1 |  0  |   0  | 1  | 1| 0| 0|
+|  1 |  0  |   1  | 0  | 0| 1| 0|
+|  1 |  0  |   1  | 1  | 0| 0| 1|
+|  1 |  1  |   0  | 0  | 1| 0| 0|
+|  1 |  1  |   0  | 1  | 1| 0| 0|
+|  1 |  1  |   1  | 0  | 1| 0| 0|
+|  1 |  1  |   1  | 1  | 0| 1| 0|
+
+(¬e1 v ¬e2 v e3) = ¬(e1 ∧ e2 ∧ ¬e3)
+Y1= (P2 ∧ ¬Q2) v (¬Q1 ∧ P1 ∧ P2) v (¬Q1 ∧ ¬Q2 ∧ P1)  
+Y2= (Q1 ∧ Q2 ∧ P1 ∧ P2) v (¬Q1 ∧ Q2 ∧ ¬P1 ∧ P2) v (Q1 ∧ ¬Q2 ∧ P1 ∧ ¬P2) v (¬Q1 ∧ ¬Q2 ∧ ¬P1 ∧ ¬P2)  
+Y3= (Q2 ∧ ¬P2) v (Q1 ∧ Q2 ∧ ¬P1) v (Q1 ∧ ¬P1 ∧ ¬P2)  
 
 ## Aufgabe 3: Flip-Flop in Java
 
@@ -90,3 +112,61 @@ Hierzu benötigt man kein grosses Projekt in IntelliJ, sondern eine einzelne Kla
 **Main-Methode nicht vergessen!**
 
 In der main()-Methode können die einzelnen Fälle abgedeckt werden.
+
+**Lösung**:
+
+```java
+public class FlipFlop implements Latch {
+
+    private boolean A,B;
+
+    public FlipFlop() {
+        this.A = false;
+        this.B = false;
+    }
+
+    @Override
+        // simulates setting S and R of a latch
+    public void set(boolean S, boolean R) {
+        if (S && R)
+            throw new IllegalArgumentException("S and R are 1, this is not allowed!");
+
+        this.A = !(R || this.B);
+        this.B = !(S || this.A);
+    }
+
+    @Override
+    public boolean getA() {
+        return this.A;
+    }
+
+    @Override
+    public boolean getB() {
+        return this.B;
+    }
+
+    public static void main(String[] args) {
+        Latch f = new FlipFlop();
+        f.set(true, false);
+        System.out.println(f.getA());
+        System.out.println(f.getB());
+        f.set(false, true);
+        System.out.println(f.getA());
+        System.out.println(f.getB());
+        f.set(false, false);
+        System.out.println(f.getA());
+        System.out.println(f.getB());
+        f.set(true, false);
+        System.out.println(f.getA());
+        System.out.println(f.getB());
+        f.set(true, false);
+        System.out.println(f.getA());
+        System.out.println(f.getB());
+        try {
+            f.set(true, true);
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+```
