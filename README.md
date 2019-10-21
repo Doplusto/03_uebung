@@ -87,7 +87,6 @@ In der Aufgabe soll eine Schaltung entwickelt werden, die in der Lage ist, zwei 
 |  1 |  1  |   1  | 0  | 1| 0| 0|
 |  1 |  1  |   1  | 1  | 0| 1| 0|
 
-(¬e1 v ¬e2 v e3) = ¬(e1 ∧ e2 ∧ ¬e3)
 Y1= (P2 ∧ ¬Q2) v (¬Q1 ∧ P1 ∧ P2) v (¬Q1 ∧ ¬Q2 ∧ P1)  
 Y2= (Q1 ∧ Q2 ∧ P1 ∧ P2) v (¬Q1 ∧ Q2 ∧ ¬P1 ∧ P2) v (Q1 ∧ ¬Q2 ∧ P1 ∧ ¬P2) v (¬Q1 ∧ ¬Q2 ∧ ¬P1 ∧ ¬P2)  
 Y3= (Q2 ∧ ¬P2) v (Q1 ∧ Q2 ∧ ¬P1) v (Q1 ∧ ¬P1 ∧ ¬P2)  
