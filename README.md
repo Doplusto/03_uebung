@@ -169,6 +169,11 @@ public class FlipFlop implements Latch {
     }
 }
 ```
+
+Die Schaltung kann auch mit Hilfe von VHDL, also einer Sprache, die in
+der Lage ist, Hardware direkt zu beschreiben, realisiert werden. Eine
+mögliche solche Lösung könnte so aussehen:
+
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
@@ -225,8 +230,8 @@ Folgende `main()` Methode sollte laufen:
 
 ```java
 public class Gate {
-    // 
-    
+    //
+
     public static void main(String[] args) {
     System.out.println(Gate.proc(false,false, (i1,i2) -> i1 || i2));
     System.out.println(Gate.proc(true,false, (i1,i2) -> i1 || i2));
