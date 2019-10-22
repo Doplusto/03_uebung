@@ -11,22 +11,22 @@ In dieser Übung werden wir uns weiter ein wenig mit Schaltnetzwerken beschäfti
 ## Aufgabe 1: Alarmanlage
 
 Alarmanlagen sind heutzutage allseits bekannt und werden auch im Privaten sehr häufig eingesetzt. Ziel soll es im Folgenden sein, eine Schaltung einer einfachen Alarmanlage zu entwickeln:
-- Durch das Auslösen eines Sensors (s) (bspw. an Fenstern, Haustüren etc.) soll eine Alarm-Sirene (A) aktiviert werden, die erst durch ein manuelles Rücksetzen (r) wieder verstummt. 
+- Durch das Auslösen eines Sensors (s) (bspw. an Fenstern, Haustüren etc.) soll eine Alarm-Sirene (A) aktiviert werden, die erst durch ein manuelles Rücksetzen (r) wieder verstummt.
 
 ### a)
 
 Entwickeln Sie mit einem ODER-Gatter eine „Selbsterhalte“-Schaltung, die beim Auslösen eines Sensors (s) den Ausgang A dauerhaft auf 1 setzt, auch wenn s wieder deaktiviert wird.
 
->Note: Bei einer „Selbsterhalte“-Schaltung wird das Ausgangssignal eines Gatters nicht nur als Signal für den Ausgang verwendet, sondern auch durch eine zusätzliche Kabel-Abzweigung zurückgeführt und als Eingang für ein Gatter verwendet (Hier mit einem Oder-Gatter). 
+>Note: Bei einer „Selbsterhalte“-Schaltung wird das Ausgangssignal eines Gatters nicht nur als Signal für den Ausgang verwendet, sondern auch durch eine zusätzliche Kabel-Abzweigung zurückgeführt und als Eingang für ein Gatter verwendet (Hier mit einem Oder-Gatter).
 
 **Lösung:**
-Um das Eingangssignal dauerhaft zu setzen, also auch dann den Alarm aktiviert zu lassen, wenn bspw. der Sensor s nicht mehr ausgelöst wird (z.B. weil die Haustür nach dem Öffnen wieder geschlossen wurde), wird der aktuelle Ausgang A zurückgeführt und als Eingang für ein Gatter verwendet. 
+Um das Eingangssignal dauerhaft zu setzen, also auch dann den Alarm aktiviert zu lassen, wenn bspw. der Sensor s nicht mehr ausgelöst wird (z.B. weil die Haustür nach dem Öffnen wieder geschlossen wurde), wird der aktuelle Ausgang A zurückgeführt und als Eingang für ein Gatter verwendet.
 
 ![](./img/1_a.png)
 
 ### b)
 
-Ergänzen Sie die Schaltung um eine Möglichkeit, die Alarmanlage zurückzusetzen (r für Rücksetzen). Füllen Sie dazu zunächst die Wahrheitstabelle aus (den Zustand r=1 und s=1 betrachten wir später gesondert): 
+Ergänzen Sie die Schaltung um eine Möglichkeit, die Alarmanlage zurückzusetzen (r für Rücksetzen). Füllen Sie dazu zunächst die Wahrheitstabelle aus (den Zustand r=1 und s=1 betrachten wir später gesondert):
 
 | r |  s | A |
 |---|----|-------|
@@ -45,10 +45,10 @@ Zum Rücksetzen werden zusätzlich ein NOT- und ein UND-Gatter benötigt.
 
 ### c)
 
-Konzipieren Sie eine Alarmanlage mit Setzen (s) und Rücksetzen (r) nur aus NAND-Gattern. 
+Konzipieren Sie eine Alarmanlage mit Setzen (s) und Rücksetzen (r) nur aus NAND-Gattern.
 
 >Note: Ein NICHT-Gatter kann mit einem NAND-Gatter erzeugt werden, indem man beide Eingänge mit dem gleichen Eingangssignal verbindet.
-Behalte weiter die sich "kreuzende Leitungsstruktur" bei, ersetze die bisherigen Gatter mit NAND-Gatter, ... 
+Behalte weiter die sich "kreuzende Leitungsstruktur" bei, ersetze die bisherigen Gatter mit NAND-Gatter, ...
 
 **Lösung:**
 
@@ -59,10 +59,10 @@ Behalte weiter die sich "kreuzende Leitungsstruktur" bei, ersetze die bisherigen
 
 Eine digitale Schaltung, mit der zwei Dualzahlen auf Gleichheit oder Ungleichheit geprüft werden, wird als Zahlenkomparator bezeichnet.
 
-In der Aufgabe soll eine Schaltung entwickelt werden, die in der Lage ist, zwei Dualzahlen P (P1 und P2) und Q (Q1 und Q2) mit je zwei Bits zu vergleichen. Im Falle der Ungleichheit soll noch ein Größer -kleiner- Vergleich erfolgen. 
+In der Aufgabe soll eine Schaltung entwickelt werden, die in der Lage ist, zwei Dualzahlen P (P1 und P2) und Q (Q1 und Q2) mit je zwei Bits zu vergleichen. Im Falle der Ungleichheit soll noch ein Größer -kleiner- Vergleich erfolgen.
 
-### a) Ergänze die Wahrheitstabelle. 
-### b) Stellen Sie die drei Funktionsgleichungen Y1, Y2 und Y3 auf und minimieren diese.  
+### a) Ergänze die Wahrheitstabelle.
+### b) Stellen Sie die drei Funktionsgleichungen Y1, Y2 und Y3 auf und minimieren diese.
 ### c) Skizziere die Schaltung aus Grundgliedern
 
 **Lösung:**
@@ -87,9 +87,9 @@ In der Aufgabe soll eine Schaltung entwickelt werden, die in der Lage ist, zwei 
 |  1 |  1  |   1  | 0  | 1| 0| 0|
 |  1 |  1  |   1  | 1  | 0| 1| 0|
 
-Y1= (P2 ∧ ¬Q2) v (¬Q1 ∧ P1 ∧ P2) v (¬Q1 ∧ ¬Q2 ∧ P1)  
-Y2= (Q1 ∧ Q2 ∧ P1 ∧ P2) v (¬Q1 ∧ Q2 ∧ ¬P1 ∧ P2) v (Q1 ∧ ¬Q2 ∧ P1 ∧ ¬P2) v (¬Q1 ∧ ¬Q2 ∧ ¬P1 ∧ ¬P2)  
-Y3= (Q2 ∧ ¬P2) v (Q1 ∧ Q2 ∧ ¬P1) v (Q1 ∧ ¬P1 ∧ ¬P2)  
+Y1= (P2 ∧ ¬Q2) v (¬Q1 ∧ P1 ∧ P2) v (¬Q1 ∧ ¬Q2 ∧ P1)
+Y2= (Q1 ∧ Q2 ∧ P1 ∧ P2) v (¬Q1 ∧ Q2 ∧ ¬P1 ∧ P2) v (Q1 ∧ ¬Q2 ∧ P1 ∧ ¬P2) v (¬Q1 ∧ ¬Q2 ∧ ¬P1 ∧ ¬P2)
+Y3= (Q2 ∧ ¬P2) v (Q1 ∧ Q2 ∧ ¬P1) v (Q1 ∧ ¬P1 ∧ ¬P2)
 
 ## Aufgabe 3: Flip-Flop in Java
 
@@ -196,7 +196,7 @@ end flipflop;
 architecture flipflop_arch of flipflop is
 
 begin
-  process(arst  , clk)
+  process(arst, clk)
     if arst = '1' then
       a         <= '0';
       b         <= '0';
