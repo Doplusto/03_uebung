@@ -170,3 +170,93 @@ public class FlipFlop implements Latch {
     }
 }
 ```
+
+### b)
+
+Erinnern Sie sich and `FunctionalInterfaces`?
+
+Gegeben ist folgendes Interface:
+
+```java
+public interface Logic {
+    //
+    boolean operate(boolean in1, boolean in2);
+}
+```
+
+Schreiben Sie eine Klasse `Gate`, die eine Methode `public static boolean proc(boolean in1, boolean in2, Logic l)` hat. Diese Methode führt die `FunctionalInterface` Methode `operate` aus und gibt die Liste der Wahrheitswerte zurück.
+
+Folgende `main()` Methode sollte laufen:
+
+```java
+public class Gate {
+    // 
+    
+    public static void main(String[] args) {
+    System.out.println(Gate.proc(false,false, (i1,i2) -> i1 || i2));
+    System.out.println(Gate.proc(true,false, (i1,i2) -> i1 || i2));
+    System.out.println(Gate.proc(false,true, (i1,i2) -> i1 || i2));
+    System.out.println(Gate.proc(true,true, (i1,i2) -> i1 || i2));
+
+    System.out.println(Gate.proc(false,false, (i1,i2) -> i1 && i2));
+    System.out.println(Gate.proc(true,false, (i1,i2) -> i1 && i2));
+    System.out.println(Gate.proc(false,true, (i1,i2) -> i1 && i2));
+    System.out.println(Gate.proc(true,true, (i1,i2) -> i1 && i2));
+    }
+}
+```
+
+Produziert:
+```
+false
+true
+true
+true
+false
+false
+false
+true
+```
+**Erweitern Sie die Lambda-Ausdrücke um NOR, NAND und XOR Funktionen!**
+
+**Lösung**:
+
+```
+public class Gate {
+
+    public static boolean proc(boolean in1, boolean in2, Logic l) {
+        return l.operate(in1, in2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Gate.proc(false,false, (i1,i2) -> i1 || i2));
+        System.out.println(Gate.proc(true,false, (i1,i2) -> i1 || i2));
+        System.out.println(Gate.proc(false,true, (i1,i2) -> i1 || i2));
+        System.out.println(Gate.proc(true,true, (i1,i2) -> i1 || i2));
+
+        System.out.println(Gate.proc(false,false, (i1,i2) -> i1 && i2));
+        System.out.println(Gate.proc(true,false, (i1,i2) -> i1 && i2));
+        System.out.println(Gate.proc(false,true, (i1,i2) -> i1 && i2));
+        System.out.println(Gate.proc(true,true, (i1,i2) -> i1 && i2));
+
+        // NOR
+        System.out.println(Gate.proc(false,false, (i1,i2) -> !(i1 || i2)));
+        System.out.println(Gate.proc(true,false, (i1,i2) -> !(i1 || i2)));
+        System.out.println(Gate.proc(false,true, (i1,i2) -> !(i1 || i2)));
+        System.out.println(Gate.proc(true,true, (i1,i2) -> !(i1 || i2)));
+
+        // NAND
+        System.out.println(Gate.proc(false,false, (i1,i2) -> !(i1 && i2)));
+        System.out.println(Gate.proc(true,false, (i1,i2) -> !(i1 && i2)));
+        System.out.println(Gate.proc(false,true, (i1,i2) -> !(i1 && i2)));
+        System.out.println(Gate.proc(true,true, (i1,i2) -> !(i1 && i2)));
+
+        //XOR
+        System.out.println(Gate.proc(false,false, (i1,i2) -> (i1 || i2) && !(i1 && i2)));
+        System.out.println(Gate.proc(true,false, (i1,i2) -> (i1 || i2) && !(i1 && i2)));
+        System.out.println(Gate.proc(false,true, (i1,i2) -> (i1 || i2) && !(i1 && i2)));
+        System.out.println(Gate.proc(true,true, (i1,i2) -> (i1 || i2) && !(i1 && i2)));
+
+    }
+}
+```
