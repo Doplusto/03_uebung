@@ -169,6 +169,42 @@ public class FlipFlop implements Latch {
     }
 }
 ```
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity flipflop is
+  port
+  (
+    arst    : in  std_logic;
+    clk     : in  std_logic;
+    set     : in  std_logic;
+    reset   : in  std_logic;
+
+    a       : out std_logic;
+    b       : out std_logic;
+    valid   : out std_logic
+  );
+end flipflop;
+
+architecture flipflop_arch of flipflop is
+
+begin
+  process(arst  , clk)
+    if arst = '1' then
+      a         <= '0';
+      b         <= '0';
+    elsif rising_edge(clk) then
+      valid     <= set not and reset;
+      a         <= reset not or b;
+      b         <= set not or a;
+    end if;
+  end process;
+
+end flipflop_arch;
+```
+
 
 ### b)
 
