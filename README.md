@@ -88,7 +88,9 @@ In der Aufgabe soll eine Schaltung entwickelt werden, die in der Lage ist, zwei 
 |  1 |  1  |   1  | 1  | 0| 1| 0|
 
 Y1= (P2 ∧ ¬Q2) v (¬Q1 ∧ P1 ∧ P2) v (¬Q1 ∧ ¬Q2 ∧ P1)
+
 Y2= (Q1 ∧ Q2 ∧ P1 ∧ P2) v (¬Q1 ∧ Q2 ∧ ¬P1 ∧ P2) v (Q1 ∧ ¬Q2 ∧ P1 ∧ ¬P2) v (¬Q1 ∧ ¬Q2 ∧ ¬P1 ∧ ¬P2)
+
 Y3= (Q2 ∧ ¬P2) v (Q1 ∧ Q2 ∧ ¬P1) v (Q1 ∧ ¬P1 ∧ ¬P2)
 
 ## Aufgabe 3: Flip-Flop in Java
